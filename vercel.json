@@ -3,12 +3,20 @@
     {
       "src": "app/main.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "app/prettier.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
       "dest": "app/main.py"
+    },
+    {
+      "src": "/api/prettier",
+      "dest": "/api/prettier.js"
     }
   ]
 }

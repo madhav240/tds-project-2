@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 from typing import Optional, Dict, Any, List
+from app.utils import tools
 import httpx
 import json
 import os
@@ -30,7 +31,7 @@ async def get_openai_response(question: str, file_path: Optional[str] = None) ->
 
     # Define tools for OpenAI to call
     with open('openai_functions.json', 'r') as file:
-        tools = json.load(file)
+        openai_functions = json.load(file)
     
     # Create the messages to send to the API
     messages = [
@@ -54,7 +55,7 @@ async def get_openai_response(question: str, file_path: Optional[str] = None) ->
     payload = {
         "model": "gpt-4o-mini",
         "messages": messages,
-        "tools": tools,
+        "tools": openai_functions,
         "tool_choice": "auto",
     }
 
@@ -76,6 +77,7 @@ async def get_openai_response(question: str, file_path: Optional[str] = None) ->
 
         result = response.json()
         answer = None
+
 
         # Process the response
         message = result["choices"][0]["message"]
