@@ -16,7 +16,7 @@
     },
     {
       "src": "/api/prettier",
-      "dest": "/api/prettier.js"
+      "dest": "/app/prettier.js"
     }
   ]
 }
