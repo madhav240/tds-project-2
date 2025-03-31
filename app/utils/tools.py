@@ -16,7 +16,7 @@ import csv
 from typing import Optional, Dict, Any, List
 from datetime import datetime, timedelta
 
-PRETTIER_API_URL = f'{os.getenv('APP_URL')}/api/prettier'
+PRETTIER_API_URL = f'{os.getenv('APP_URL')}/prettier'
 
 
 async def calculate_statistics(file_path: str, operation: str, column_name: str) -> str:

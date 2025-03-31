@@ -15,7 +15,7 @@
       "dest": "app/main.py"
     },
     {
-      "src": "/api/prettier",
+      "src": "/prettier",
       "dest": "/app/prettier.js"
     }
   ]
