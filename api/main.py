@@ -5,10 +5,10 @@ from .utils.openai_client import get_openai_response
 from typing import Optional
 
 
-app = FastAPI() 
+api = FastAPI() 
 
 # Add CORS middleware
-app.add_middleware(
+api.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,
@@ -17,7 +17,7 @@ app.add_middleware(
 )
 
 
-@app.post("/api/")
+@api.post("/api/")
 async def process_question(
     question: str = Form(...), file: Optional[UploadFile] = File(None)
 ):
@@ -37,4 +37,4 @@ async def process_question(
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("api.main:app", host="0.0.0.0", port=8000, reload=True)
