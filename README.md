@@ -10,7 +10,7 @@ This API automatically answers questions from graded assignments for the IIT Mad
    - Windows: `venv\Scripts\activate`
    - Unix/MacOS: `source venv/bin/activate`
 4. Install dependencies: `pip install -r requirements.txt`
-5. Create a `.env` file with your `AIPROXY_TOKEN` and `PRETTIER_API_URL=http://localhost:8000`
+5. Create a `.env` file with your `AIPROXY_TOKEN` and `PRETTIER_API_URL=https://tds-project-2-nodejs.vercel.app/api/prettier`
 6. Run the server: `uvicorn main:app --reload`
 
 ## Usage

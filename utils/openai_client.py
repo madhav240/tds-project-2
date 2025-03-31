@@ -67,8 +67,6 @@ async def get_openai_response(question: str, file_path: Optional[str] = None) ->
         # If the result looks like a JSON object (starts with {), try to get the hash directly
         if result.startswith("{") and result.endswith("}"):
             try:
-                import httpx
-
                 async with httpx.AsyncClient() as client:
                     response = await client.post(
                         "https://tools-in-data-science.pages.dev/api/hash",
