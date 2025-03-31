@@ -10,16 +10,18 @@ This API automatically answers questions from graded assignments for the IIT Mad
    - Windows: `venv\Scripts\activate`
    - Unix/MacOS: `source venv/bin/activate`
 4. Install dependencies: `pip install -r requirements.txt`
-5. Create a `.env` file with your `AIPROXY_TOKEN` and `APP_URL=http://localhost:8000`
-6. Run the server: `uvicorn app.main:app --reload`
+5. Create a `.env` file with your `AIPROXY_TOKEN` and `PRETTIER_API_URL=http://localhost:8000`
+6. Run the server: `uvicorn main:app --reload`
 
 ## Usage
 
 Send a POST request to the `/api/` endpoint with:
+
 - `question`: The assignment question
 - `file` (optional): Any file attachment needed to answer the question
 
 Example:
+
 ```bash
 curl -X POST "http://localhost:8000/api/" \
   -H "Content-Type: multipart/form-data" \
@@ -28,6 +30,7 @@ curl -X POST "http://localhost:8000/api/" \
 ```
 
 Response:
+
 ```json
 {
   "answer": "1234567890"

@@ -1,7 +1,7 @@
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from app.utils.file_handler import save_upload_file_temporarily
-from app.utils.openai_client import get_openai_response
+from utils.file_handler import save_upload_file_temporarily
+from utils.openai_client import get_openai_response
 from typing import Optional
 
 app = FastAPI() 
