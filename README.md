@@ -1,28 +1,39 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask3&demo-title=Flask%203%20%2B%20Vercel&demo-description=Use%20Flask%203%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask3-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+# IITM Assignment API
 
-# Flask + Vercel
+This API automatically answers questions from graded assignments for the IIT Madras Online Degree in Data Science.
 
-This example shows how to use Flask 3 on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
+## Setup
 
-## Demo
+1. Clone this repository
+2. Create a virtual environment: `python -m venv venv`
+3. Activate the virtual environment:
+   - Windows: `venv\Scripts\activate`
+   - Unix/MacOS: `source venv/bin/activate`
+4. Install dependencies: `pip install -r requirements.txt`
+5. Create a `.env` file with your `AIPROXY_TOKEN` and `APP_URL=http://localhost:8000`
+6. Run the server: `uvicorn app.main:app --reload`
 
-https://flask-python-template.vercel.app/
+## Usage
 
-## How it Works
+Send a POST request to the `/api/` endpoint with:
+- `question`: The assignment question
+- `file` (optional): Any file attachment needed to answer the question
 
-This example uses the Web Server Gateway Interface (WSGI) with Flask to enable handling requests on Vercel with Serverless Functions.
-
-## Running Locally
-
+Example:
 ```bash
-npm i -g vercel
-vercel dev
+curl -X POST "http://localhost:8000/api/" \
+  -H "Content-Type: multipart/form-data" \
+  -F "question=Download and unzip file abcd.zip which has a single extract.csv file inside. What is the value in the 'answer' column of the CSV file?" \
+  -F "file=@abcd.zip"
 ```
 
-Your Flask application is now available at `http://localhost:3000`.
+Response:
+```json
+{
+  "answer": "1234567890"
+}
+```
 
-## One-Click Deploy
+## License
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask3&demo-title=Flask%203%20%2B%20Vercel&demo-description=Use%20Flask%203%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask3-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+This project is licensed under the MIT License - see the LICENSE file for details.
