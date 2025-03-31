@@ -16,6 +16,9 @@
     },
     {
       "src": "/prettier",
+      "methods": [
+        "POST"
+      ],
       "dest": "/app/prettier.js"
     }
   ]
