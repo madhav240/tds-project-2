@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import prettier from "prettier";
 
 export const config = {
-  runtime: "edge", // Use Vercel Edge functions for performance
+  runtime: "nodejs",
 };
 
 export default async function handler(req) {
