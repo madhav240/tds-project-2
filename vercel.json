@@ -18,5 +18,10 @@
       "src": "/api/prettier",
       "dest": "/app/prettier.js"
     }
-  ]
+  ],
+  "functions": {
+    "app/prettier.js": {
+      "runtime": "nodejs"
+    }
+  }
 }
