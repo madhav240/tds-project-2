@@ -3,12 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.utils.file_handler import save_upload_file_temporarily
 from app.utils.openai_client import get_openai_response
 from typing import Optional
-import os
-
 
 
 app = FastAPI() 
-
 
 # Add CORS middleware
 app.add_middleware(
@@ -36,8 +33,3 @@ async def process_question(
         return {"answer": answer}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
-
-@app.get('/about')
-def about():
-    return 'About'
