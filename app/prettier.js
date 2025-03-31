@@ -1,4 +1,3 @@
-import { NextRequest, NextResponse } from "next/server";
 import prettier from "prettier";
 
 export default async function handler(req) {
