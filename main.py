@@ -4,7 +4,6 @@ from app.utils.file_handler import save_upload_file_temporarily
 from app.utils.openai_client import get_openai_response
 from typing import Optional
 
-
 app = FastAPI() 
 
 # Add CORS middleware
