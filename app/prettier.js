@@ -1,32 +1,19 @@
 import prettier from "prettier";
 
-export const config = {
-    runtime: "nodejs",
-};
-  
+export default function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Only POST requests allowed" });
+  }
 
-export default async function handler(req) {
+  const { code } = req.body;
+  if (!code) {
+    return res.status(400).json({ error: 'Missing "code" in request body' });
+  }
+
   try {
-    if (req.method !== "POST") {
-      return new NextResponse("Only POST requests allowed", { status: 405 });
-    }
-
-    // Read text content from request body
-    const { code } = await req.json();
-
-    if (!code) {
-      return new NextResponse('Missing "code" in request body', {
-        status: 400,
-      });
-    }
-
-    // Format code using Prettier
     const formattedCode = prettier.format(code, { parser: "babel" });
-
-    return NextResponse.json({ formattedCode });
+    return res.json({ formattedCode });
   } catch (error) {
-    return new NextResponse(`Prettier Error: ${error.message}`, {
-      status: 500,
-    });
+    return res.status(500).json({ error: `Prettier Error: ${error.message}` });
   }
 }
