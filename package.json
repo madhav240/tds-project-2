@@ -4,7 +4,10 @@
     "type": "module",
     "dependencies": {
         "prettier": "3.4.2",
-        "@vercel/node": "^4.2.4"
+        "@vercel/node": "^5.1.14"
+    },
+    "engines": {
+        "node": "22.x"
     },
     "scripts": {
         "dev": "vercel dev"
