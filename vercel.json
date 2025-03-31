@@ -1,25 +1,14 @@
 {
   "builds": [
     {
-      "src": "app/main.py",
+      "src": "main.py",
       "use": "@vercel/python"
-    },
-    {
-      "src": "app/prettier.js",
-      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "app/main.py"
-    },
-    {
-      "src": "/prettier",
-      "methods": [
-        "POST"
-      ],
-      "dest": "/app/prettier.js"
+      "dest": "main.py"
     }
   ]
 }
